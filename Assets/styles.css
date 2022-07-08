@@ -1,0 +1,10 @@
+body {
+    background-color: wheat;
+
+}
+header {
+    display: block;
+    text-align: center;
+    background-color: salmon;
+    padding: 15px;
+}
