@@ -1,5 +1,10 @@
 var inputValue = document.querySelector(".user-input");
-var btn = doucmet.querySelector(".btn");
+var btn = document.querySelector('.button')
+var desc = document.querySelector(".desc")
+var temp = document.querySelector(".temp")
+var name = document.querySelector(".name")
+
+//setting all the variables from DOM
 
 // const weatherdata = () => {
 //     fetch("https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid=bf593cc145bddaaa5aef0a13fbd078bf")
