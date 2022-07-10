@@ -21,13 +21,17 @@ header {
     padding: 15px;
 }
 .input{
-    display: flex;
+    display: block;
     width: 25%;
     height: 100%;
-    flex-direction: column
+    flex-direction: row;
+    
+    margin: 5px
 }
 .search{
-    height: 35%;
+    height: 25%;
+    width: 100%;
+    border: 3px solid black;
 }
 #citySearch{
     font-size: 20px;
@@ -36,27 +40,64 @@ header {
     width: 90%;
     padding: 5px;
     margin: 10px;
+
 }
 .button{
     width: 90%;
     padding: 5px;
     margin: 10px;
     background-color: lightgreen;
-
 }
+.history {
+    display: block;
+    flex-direction: row;
+    height: 65%;
+}
+
 /* the section that will display the current weather for x city  */
 /* and the 5 day forcast */
-.display{
-    display: flex;
+.main-display{
+   flex-direction: row;
    width: 75%;
-   height: 100%;
-    background-color: aqua;
+   height:100%;
+    background-color: wheat;
     flex-direction: row;
 
+    margin: 5px;
+ 
 }
+.currentDay{
+    border: 3px solid black;
+    height: 40%;
+    width: 100%;
+    padding: 5px;
+    margin-top: 0px;
+ 
+
+
+}
+/* each individual text will get a block  */
+/* .name{
+    
+}
+.date{
+    
+}
+.temp{
+    display: block;
+}
+.humidity{
+    display: block;
+}
+.UVindex{
+    display: block;
+} */
+/* .forecast{
+    display: flex;
+    flex-direction: row;
+} */
 .flex-container{
     display: flex;
-    
     padding: 0;
     margin: 0;
     height: 100%;
