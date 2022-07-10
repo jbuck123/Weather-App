@@ -14,17 +14,31 @@
             Weather Dashboard
         </h1>
     </header>
-<div class="input">
-    <input class="user-input" type="text" placeholder="Enter a City">
-    <input type="submit" value="Submit" class="button">
-</div>
+<div class="flex-container">
+    <div class="input">
+        <div class="search">
+            <h1 id="citySearch">Search for a City: </h1>
+            <input class="user-input" type="text" placeholder="Enter a City">
+            <input type="submit" value="Submit" class="button">
+        </div>
+        
+            <ul class="history">
+                <li>.</li>
+                <li>.</li>
+                <li>.</li>
+                <li>.</li>
+                <li>.</li>
+            </ul>
+    
+    
+    </div>
 
-<div class="dispaly">
-    <h1 class="name"></h1>
-    <p class="desc"></p>
-    <p class="temp"></p>
+    <div class="display">
+        <h1 class="name">name</h1>
+        <p class="desc">desc</p>
+        <p class="temp">temp</p>
+    </div>
 </div>
-
 </body>
 <script src="./Assets/script.js"></script>
 </html>

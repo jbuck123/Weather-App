@@ -22,9 +22,5 @@ btn.addEventListener('click', function(){
     .then(data => console.log(data))
     
     .catch(err => alert("wrong city name !")) 
-})
-fetch("https://api.openweathermap.org/data/2.5/weather?q='+inputValue.value+'&appid=bf593cc145bddaaa5aef0a13fbd078bf")
-.then(Response => Response.json())
-.then(data => console.log(data))
+});
 
-.catch(err => alert("wrong city name !"))
