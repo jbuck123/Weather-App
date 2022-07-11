@@ -17,8 +17,9 @@ body {
 header {
     display: block;
     text-align: center;
-    background-color: salmon;
+    background-color: lightslategray;
     padding: 15px;
+    color: whitesmoke;
 }
 .input{
     display: block;
@@ -61,8 +62,6 @@ header {
    width: 75%;
    height:100%;
     background-color: wheat;
-    flex-direction: row;
-
     margin: 5px;
  
 }
@@ -76,26 +75,27 @@ header {
 
 
 }
-/* each individual text will get a block  */
-/* .name{
+
+.container{
+    background-color: lightslategray;
+    margin: 5px;
+
+   
     
 }
-.date{
-    
-}
-.temp{
-    display: block;
-}
-.humidity{
-    display: block;
-}
-.UVindex{
-    display: block;
-} */
-/* .forecast{
+.forecast{
+
+    height: 40%;
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
     display: flex;
     flex-direction: row;
-} */
+  
+    
+}
+
+/* not sure what this is doing  */
 .flex-container{
     display: flex;
     padding: 0;
