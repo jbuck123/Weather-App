@@ -7,7 +7,7 @@ currently only finished with the css and the html but bit by bit i will add the 
 
 ![Weather-App demo](./Assets/images/Screenshot.png)
 
-##link to the Githubrepo
+## link to the Githubrepo
 https://github.com/jbuck123/Weather-App
 
 ## link to the live website
