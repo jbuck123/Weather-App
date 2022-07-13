@@ -4,23 +4,23 @@ var desc = document.querySelector(".desc")
 var temp = document.querySelector(".temp")
 var name = document.querySelector(".name")
 
-//setting all the variables from DOM
-
-// const weatherdata = () => {
-//     fetch("https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid=bf593cc145bddaaa5aef0a13fbd078bf")
-//     .then((data) => data.json())
-//     .then((data) => console.log(data));
 
 
-
-// };
-
-// weatherdata();
 btn.addEventListener('click', function(){
-    fetch("https://api.openweathermap.org/data/2.5/weather?q='+inputValue.value+'&appid=bf593cc145bddaaa5aef0a13fbd078bf")
-    .then(Response => Response.json())
-    .then(data => console.log(data))
+citySearch = inputValue.value;
+fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + citySearch + '&limit=5&appid=ce8c11c996c61edc1c5e6e600162d8a9')
+        .then(function (res) {
+            return res.json();
+        })
+        .then(function (data){
+
+            var longit = data[0].lon;
+            var latit = data[0].lat;
+            console.log(longit, latit);
+        })
+        $(".city-name").text(citySearch)
     
     .catch(err => alert("wrong city name !")) 
 });
 
+ßß
