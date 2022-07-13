@@ -31,6 +31,10 @@ fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + citySearch + '&limit=
             .then(function (data){
                 console.log(data);
                 console.log(data.current.temp, data.current.wind_speed, data.current.humidity, data.current.uvi);
+                $(".temp").text(data.current.temp)
+                $(".wind").text(data.current.wind_speed)
+                $(".humidity").text(data.current.humidity)
+                $(".UVindex").text(data.current.uvi)
                 
             })
         })

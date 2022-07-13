@@ -71,11 +71,22 @@ header {
     width: 100%;
     padding: 5px;
     margin-top: 0px;
- 
-
-
 }
-
+.date{
+    display: block;
+}
+.temp{
+    display: block;
+}
+.wind{
+    display: block;
+}
+.humidity{
+    display: block;
+}
+.UVindex{
+    display: block;
+}
 .container{
     background-color: lightslategray;
     margin: 5px;
