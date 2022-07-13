@@ -35,6 +35,14 @@ fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + citySearch + '&limit=
                 $(".wind").text(data.current.wind_speed)
                 $(".humidity").text(data.current.humidity)
                 $(".UVindex").text(data.current.uvi)
+        
+                // time to fill out the 5 day forecast 
+                for (i = 0; i < 5; i++){
+                    console.log(data.daily[i].clouds);
+                    console.log(data.daily[i].wind_speed);
+                    console.log(data.daily[i].temp.day);
+                    console.log(data.daily[i].humidity);
+                };
                 
             })
         })
