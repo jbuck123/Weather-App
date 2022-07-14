@@ -12,7 +12,7 @@ $(".date").text(date);
 btn.addEventListener('click', function(){
     // user input variable 
 citySearch = inputValue.value;
-fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + citySearch + '&limit=5&appid=bf593cc145bddaaa5aef0a13fbd078bf')
+fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + citySearch + '&limit=5&appid=1fea590a4873c18c5045080846ade6e4')
         .then(function (res) {
             return res.json();
         })
@@ -23,7 +23,7 @@ fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + citySearch + '&limit=
             console.log(longit, latit);
             $(".cityName").text(citySearch)
             // using lat and lon variables to form a more accurate api fetch
-            fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + latit + '&lon=' + longit + '&units=imperial&appid=bf593cc145bddaaa5aef0a13fbd078bf')
+            fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + latit + '&lon=' + longit + '&units=imperial&appid=1fea590a4873c18c5045080846ade6e4')
             .then(function (res) {
                 return res.json();
             })
