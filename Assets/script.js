@@ -3,9 +3,28 @@ var btn = document.querySelector('.button')
 var desc = document.querySelector(".desc")
 var temp = document.querySelector(".temp")
 var name = document.querySelector(".name")
-var date = moment().format("MMM Do YY");   
-console.log(date)
-$(".date").text(date);
+
+
+//setting the current date variable
+var today = moment().format("MMM Do YY");   
+//setting the current day in the main container
+$(".date").text(today);
+// setting the variables for the dates.
+var day1 = moment().add(1,'days');
+var day2 = moment().add(2,'days');
+var day3 = moment().add(3,'days');
+var day4 = moment().add(4,'days');
+var day5 = moment().add(5,'days');
+
+// setting the 5 day forecast dates. 
+$(".date1").text(day1);
+$(".date2").text(day2);
+$(".date3").text(day3);
+$(".date4").text(day4);
+$(".date5").text(day5);
+
+
+
 
 
 // fetching API using user inpit city search
@@ -38,6 +57,7 @@ fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + citySearch + '&limit=
         
                 // time to fill out the 5 day forecast 
                 // this is giving me 5 days of weather data... need to figure out how to place into seperate html.
+                //got it 
                i = 0
                     // temp
                     $('.temp5').each(function () {
@@ -73,8 +93,6 @@ fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + citySearch + '&limit=
 
                         $(this).text(`${UVindexdata} `)
                         i++;
-                        console.log(UVindexdata)
-
                         if( UVindexdata < 2 ){
                             $(".UVindex5").css("background-color","green");
                         } 
