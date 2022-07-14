@@ -3,10 +3,8 @@ var btn = document.querySelector('.button')
 var desc = document.querySelector(".desc")
 var temp = document.querySelector(".temp")
 var name = document.querySelector(".name")
-var today = new Date();
-var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var date = moment().format("MMM Do YY");   
 console.log(date)
-
 $(".date").text(date);
 
 
