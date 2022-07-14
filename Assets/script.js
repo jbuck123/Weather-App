@@ -1,8 +1,10 @@
+//declaring variables 
 var inputValue = document.querySelector(".user-input");
 var btn = document.querySelector('.button')
 var desc = document.querySelector(".desc")
 var temp = document.querySelector(".temp")
 var name = document.querySelector(".name")
+var UVINdex;
 
 
 //setting the current date variable
@@ -54,6 +56,9 @@ fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + citySearch + '&limit=
                 $(".wind").text(data.current.wind_speed);
                 $(".humidity").text(data.current.humidity);
                 $(".UVindex").text(data.current.uvi);
+
+                // setting the color of the UV INDex
+        
         
                 // time to fill out the 5 day forecast 
                 // this is giving me 5 days of weather data... need to figure out how to place into seperate html.
@@ -89,26 +94,32 @@ fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + citySearch + '&limit=
                     i = 0;
 
                     $('.UVindex5').each(function () {
-                        var UVindexdata = (data.daily[i].uvi);
-
+                         UVindexdata = (data.daily[i].uvi);
+                        console.log(UVindexdata)
                         $(this).text(`${UVindexdata} `)
+                        
+                       
+                            if( UVindexdata <= 3 ){
+                                $(this).css("background-color","green");
+                            } 
+                            else if (UVindexdata > 3 && UVindexdata <= 6){
+                                $(this).css("background-color","yellow");
+                            }
+                            else if (UVindexdata > 6 && UVindexdata <= 8){
+                                $(this).css("background-color","orange");
+                            }
+                            else if (UVindexdata > 8  && UVindexdata <= 10){
+                                $(this).css("background-color","red");
+                            }
+                            else if(UVindexdata > 10) {
+                                $(this).css("background-color","purple");
+                            }
+                       
+                    
                         i++;
-                        if( UVindexdata < 2 ){
-                            $(".UVindex5").css("background-color","green");
-                        } 
-                        else if (UVindexdata >= 3 && UVindexdata <= 5){
-                            $(".UVindex5").css("background-color","yellow");
-                        }
-                        else if (UVindexdata >= 6 && UVindexdata <= 7){
-                            $(".UVindex5").css("background-color","orange");
-                        }
-                        else if (UVindexdata >= 8 && UVindexdata <= 10){
-                            $(".UVindex5").css("background-color","red");
-                        }
-                        else {
-                            $(".UVindex5").css("background-color","purple");
-                        }
                     })
+                        
+                   
                     
                     
                 
@@ -119,3 +130,20 @@ fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + citySearch + '&limit=
     .catch(err => alert("wrong city name !")) 
 });
 
+function UVIcolor(){
+    if( UVindexdata <= 3 ){
+        $(this).css("background-color","green");
+    } 
+    else if (UVindexdata > 3 && UVindexdata <= 6){
+        $(this).css("background-color","yellow");
+    }
+    else if (UVindexdata > 6 && UVindexdata <= 8){
+        $(this).css("background-color","orange");
+    }
+    else if (UVindexdata > 8  && UVindexdata <= 10){
+        $(this).css("background-color","red");
+    }
+    else if(UVindexdata > 10) {
+        $(this).css("background-color","purple");
+    }
+}
