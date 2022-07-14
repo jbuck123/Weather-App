@@ -34,18 +34,68 @@ fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + citySearch + '&limit=
                 console.log(data.current.temp, data.current.wind_speed, data.current.humidity, data.current.uvi);
                 // console logging the weather data and setting the html text to the data 
                 $(".temp").text(data.current.temp)
-                $(".wind").text(data.current.wind_speed)
-                $(".humidity").text(data.current.humidity)
-                $(".UVindex").text(data.current.uvi)
+                $(".wind").text(data.current.wind_speed);
+                $(".humidity").text(data.current.humidity);
+                $(".UVindex").text(data.current.uvi);
         
                 // time to fill out the 5 day forecast 
                 // this is giving me 5 days of weather data... need to figure out how to place into seperate html.
-                for (i = 0; i < 5; i++){
-                    console.log(data.daily[i].clouds);
-                    console.log(data.daily[i].wind_speed);
-                    console.log(data.daily[i].temp.day);
-                    console.log(data.daily[i].humidity);
-                };
+               i = 0
+                    // temp
+                    $('.temp5').each(function () {
+                        var tempData = Math.floor(data.daily[i].temp.day);
+
+                       
+                        $(this).text(`${tempData} °F`)
+                        i++;
+                    })
+                    //wind
+                    i = 0;
+
+                    $('.wind5').each(function () {
+                        var windData =(data.daily[i].wind_speed);
+
+                        $(this).text(`${windData}`)
+                        i++;
+                    })
+                    // humididty section
+                    i = 0;
+
+                    $('.humidity5').each(function () {
+                        var humididtyData = (data.daily[i].humidity);
+
+                        $(this).text(`${humididtyData} `)
+                        i++;
+                    })
+                    // UVINdex section
+                    i = 0;
+
+                    $('.UVindex5').each(function () {
+                        var UVindexdata = (data.daily[i].uvi);
+
+                        $(this).text(`${UVindexdata} `)
+                        i++;
+                        console.log(UVindexdata)
+
+                        if( UVindexdata < 2 ){
+                            $(".UVindex5").css("background-color","green");
+                        } 
+                        else if (UVindexdata >= 3 && UVindexdata <= 5){
+                            $(".UVindex5").css("background-color","yellow");
+                        }
+                        else if (UVindexdata >= 6 && UVindexdata <= 7){
+                            $(".UVindex5").css("background-color","orange");
+                        }
+                        else if (UVindexdata >= 8 && UVindexdata <= 10){
+                            $(".UVindex5").css("background-color","red");
+                        }
+                        else {
+                            $(".UVindex5").css("background-color","purple");
+                        }
+                    })
+                    
+                    
+                
                 
             })
         })
