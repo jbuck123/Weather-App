@@ -4,6 +4,7 @@ var btn = document.querySelector('.button')
 var desc = document.querySelector(".desc")
 var temp = document.querySelector(".temp")
 var name = document.querySelector(".name")
+var citySearch;
 var UVINdex;
 
 
@@ -26,13 +27,41 @@ $(".date4").text(day4);
 $(".date5").text(day5);
 
 
+// var cityHistory = localStorage.getItem("history")
+//
+var array= []
+
+ // this is going to be a function that pushes inputvalue into an array.
+function storeCities(citySearch){
+  
+    // array.apend(citySearch);
+    
+    localStorage.setItem('history', citySearch);
+    var localarray = localStorage.getItem('history');
+    console.log(localarray + " this is from the local storage bitch.");
+    array.unshift(localarray);
+     var another  = localStorage.setItem("history2", array);
+     console.log(another, ' the array ')
+
+        // using unshift becuase it will add each city to the beginning of the array
+    // var parsed = JSON.parse(localarray) || [];
+    // console.log(parsed);
+    console.log(array, 'this is the city history');
+
+   
+
+
+     
+}
 
 
 
 // fetching API using user inpit city search
 btn.addEventListener('click', function(){
     // user input variable 
-citySearch = inputValue.value;
+    citySearch = inputValue.value;
+    console.log(citySearch);
+    storeCities(citySearch);
 fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + citySearch + '&limit=5&appid=1fea590a4873c18c5045080846ade6e4')
         .then(function (res) {
             return res.json();
@@ -117,13 +146,7 @@ fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + citySearch + '&limit=
                        
                     
                         i++;
-                    })
-                        
-                   
-                    
-                    
-                
-                
+                    })  
             })
         })
     
@@ -146,4 +169,8 @@ function UVIcolor(){
     else if(UVindexdata > 10) {
         $(this).css("background-color","purple");
     }
+    storeCities();
 }
+
+
+
