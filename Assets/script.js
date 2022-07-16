@@ -29,26 +29,19 @@ $(".date5").text(day5);
 
 // var cityHistory = localStorage.getItem("history")
 //
-var array= []
+
 
  // this is going to be a function that pushes inputvalue into an array.
 function storeCities(citySearch){
   
-    // array.apend(citySearch);
-    
-    localStorage.setItem('history', citySearch);
-    var localarray = localStorage.getItem('history');
-    console.log(localarray + " this is from the local storage bitch.");
-    array.unshift(localarray);
-     var another  = localStorage.setItem("history2", array);
-     console.log(another, ' the array ')
+// var array = localStorage.getItem('history') || [];
+// array.unshift(citySearch);
+// console.log(array);
+// var stringified = localStorage.setItem('history', JSON.stringify(array));
+// console.log(stringified);
 
-        // using unshift becuase it will add each city to the beginning of the array
-    // var parsed = JSON.parse(localarray) || [];
-    // console.log(parsed);
-    console.log(array, 'this is the city history');
 
-   
+
 
 
      
@@ -86,12 +79,33 @@ fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + citySearch + '&limit=
                 $(".humidity").text(data.current.humidity);
                 $(".UVindex").text(data.current.uvi);
 
+
+                $("#wicon").each(function(){
+                    var iconcode = data.current.weather[0].icon;
+                    var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+                    $(this).attr('src', iconurl)
+
+                })
+
                 // setting the color of the UV INDex
         
         
                 // time to fill out the 5 day forecast 
                 // this is giving me 5 days of weather data... need to figure out how to place into seperate html.
                 //got it 
+                // weather icon 
+                i = 0;
+                if( i < 5)
+                
+                $('#wicon5').each(function () {
+                    var iconcode = data.daily[i].weather[0].icon;
+                    
+                    var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+                    $(this).attr('src', iconurl)
+                    i++;
+                    console.log(i, "array index");
+                })
+
                i = 0
                     // temp
                     $('.temp5').each(function () {
