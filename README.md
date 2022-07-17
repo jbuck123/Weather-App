@@ -13,7 +13,7 @@ THEN I am presented with a 5-day forecast that displays the date, an icon repres
 currently i am working on the last part of polishing up the buttons and displaying the forecast from the history buttons 
 
 
-![Weather-App demo](./Assets/images/Screenshot2.png)
+![Weather-App demo](./Assets/images/screenshot2.png)
 
 ## link to the Githubrepo
 https://github.com/jbuck123/Weather-App
