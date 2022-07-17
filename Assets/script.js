@@ -28,33 +28,54 @@ $(".date5").text(day5);
 
 
 // var cityHistory = localStorage.getItem("history")
-//
-
 
  // this is going to be a function that pushes inputvalue into an array.
 function storeCities(citySearch){
   
-// var array = localStorage.getItem('history') || [];
-// array.unshift(citySearch);
-// console.log(array);
-// var stringified = localStorage.setItem('history', JSON.stringify(array));
-// console.log(stringified);
-
-
-
-
-
-     
+var array = JSON.parse(localStorage.getItem('history')) || [];
+if(!array.includes(citySearch)){
+array.push(citySearch);
 }
+
+console.log(array);
+var stringified = localStorage.setItem('history', JSON.stringify(array));
+console.log(stringified);
+
+
+}
+function displayCity(){
+   var displayArray = JSON.parse(localStorage.getItem('history'))
+    for (let index = 0; index < displayArray.length; index++) {
+        const element = displayArray[index];
+        const liEl = $('<input>')
+        liEl.attr('type', 'button')
+        liEl.css("display", 'block')
+        liEl.addClass('btn btn-info mb-2 displaybutton')
+        liEl.val(element)
+    
+        $('.history').append(liEl);
+        
+    }
+    
+}
+displayCity() 
+
 
 
 
 // fetching API using user inpit city search
-btn.addEventListener('click', function(){
-    // user input variable 
+btn.addEventListener('click', function(event){
+    event.preventDefault()
+    console.log($(this).text());
+    $('.history').empty(); 
+    if(citySearch != undefined){
+        console.log('its working')
+    
+
     citySearch = inputValue.value;
     console.log(citySearch);
     storeCities(citySearch);
+    displayCity() 
 fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + citySearch + '&limit=5&appid=1fea590a4873c18c5045080846ade6e4')
         .then(function (res) {
             return res.json();
@@ -95,9 +116,8 @@ fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + citySearch + '&limit=
                 //got it 
                 // weather icon 
                 i = 0;
-                if( i < 5)
                 
-                $('#wicon5').each(function () {
+                $('.wicon5').each(function () {
                     var iconcode = data.daily[i].weather[0].icon;
                     
                     var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
@@ -165,7 +185,8 @@ fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + citySearch + '&limit=
         })
     
     .catch(err => alert("wrong city name !")) 
-});
+} });
+
 
 function UVIcolor(){
     if( UVindexdata <= 3 ){
