@@ -68,14 +68,15 @@ btn.addEventListener('click', function(event){
     event.preventDefault()
     console.log($(this).text());
     $('.history').empty(); 
-    if(citySearch != undefined){
-        console.log('its working')
+    // if(citySearch != undefined){
+    //     console.log('its working')
     
 
     citySearch = inputValue.value;
     console.log(citySearch);
     storeCities(citySearch);
     displayCity() 
+    // function convert to function 
 fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + citySearch + '&limit=5&appid=1fea590a4873c18c5045080846ade6e4')
         .then(function (res) {
             return res.json();
@@ -185,7 +186,7 @@ fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + citySearch + '&limit=
         })
     
     .catch(err => alert("wrong city name !")) 
-} });
+} );
 
 
 function UVIcolor(){
